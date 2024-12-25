@@ -12,18 +12,18 @@
  
   <div class="wrapper">
     <h2>login</h2>
-    <form action="" method="post">
+    <form action="{% url 'login' %}" method="POST">
       {% csrf_token %}
       
       <div class="input-box">
         <label class="form-label" for="form3Example3c">email</label>
-        <input type="email" name="email">
+        <input type="email" name="email" required>
       </div>
       
       
       <div class="input-box">
         <label class="form-label" for="form3Example3c">Password</label>
-        <input type="text" name="password">
+        <input type="text" name="password" required>
       </div>
       
       
@@ -31,7 +31,7 @@
         <input type="Submit" value="Login">
       </div>
       <div class="text">
-        <h3>Already have an account? <a href="#">Login now</a></h3>
+        <h3>Already have an account? <a href="{% url 'register' %}">sign up</a></h3>
       </div>
     </form>
   </div>
