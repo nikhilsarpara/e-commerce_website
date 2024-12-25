@@ -41,11 +41,11 @@ def register(request):
 
 def login_view(request):
     if request.method == 'POST':
-        email = request.POST['email']
+        username = request.POST['username']
         password = request.POST['password']
-        user = auth.authenticate(request,email=email,password=password)
+        user = authenticate(request,username=username,password=password)
         if user is not None:
-            auth.login(request,user)
+            login(request,user)
             user.save()
-        return redirect('index')
+            return redirect('index')
     return render(request,'account/login.html')
