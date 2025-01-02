@@ -9,3 +9,6 @@ def index(request):
         'product':pro,
     }
     return render(request,'index.html',context)
+
+def base(request):
+    return render(request,'base.html')

@@ -3,8 +3,8 @@ from account.views import *
 
 
 urlpatterns=[
-    path('register',register,name='register'),
-    path('login',login,name='login'),
-    path('<activate>/<uid64>/<token>',activate,name='activate'),
+    path('register/',register,name='register'),
+    path('login/',login,name='login'),
+    path('activate/<uid64>/<token>',activate,name='activate'),
 
 ]

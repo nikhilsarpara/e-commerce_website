@@ -1,15 +1,31 @@
+{% extends 'base.html' %}
 {% load static %}
+{% block content %}
 <!DOCTYPE html>
 <!-- Coding by CodingLab | www.codinglabweb.com-->
-<html lang="en" dir="ltr">
+<!-- <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Registration or Sign Up form in HTML CSS | CodingLab </title>
     <link href="{% static 'css/reg.css' %}" rel="stylesheet" >
    </head>
-<body>
- 
+<body> -->
+  {% if request.GET.command == 'verification' %}
+  <section class="w3l-forml-main ">
+      <div class="form-hnyv-sec py-sm-5 py-3">
+          <div class="form-wrapv">
+  
+              You Are Already Register with this mail [{{request.GET.email}}] Plz Verify Your Account And Login
+              open Your Mail
+              <a href="https://mail.google.com/">{{request.GET.email}}</a>
+  
+          </div>
+          <button type="button">Resend Email to [{{request.GET.email}}]</button>
+      </div>
+      <!-- //coming -->
+  </section>
+  {% else %}
   <div class="wrapper">
     <h2>login</h2>
     <form action="{% url 'login' %}" method="POST">
@@ -30,11 +46,13 @@
       <div class="input-box button">
         <input type="Submit" value="Login">
       </div>
+      {% endif %}
       <div class="text">
         <h3>Already have an account? <a href="{% url 'register' %}">sign up</a></h3>
       </div>
     </form>
   </div>
 
-</body>
-</html>
+<!-- </body>
+</html> -->
+{% endblock %}
