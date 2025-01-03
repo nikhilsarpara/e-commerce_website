@@ -3,7 +3,7 @@ from store.models import product
 
 def index(request):
 
-    pro = product.objects.all()
+    pro = product.objects.all().order_by('created_at')
 
     context = {
         'product':pro,

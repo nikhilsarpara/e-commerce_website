@@ -5,4 +5,4 @@ from .models import product
 class adminproduct(admin.ModelAdmin):
     list_display=['product_name']
     prepopulated_fields={'slug':('product_name',)}
-admin.site.register(product)
+admin.site.register(product,adminproduct)
